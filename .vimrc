@@ -2,8 +2,7 @@ function ClrColumn()
       let counter = 0 
       let items = ["tasks", "hosts", "- name", "loop"]
 for i in items
-      echo i
-      autocmd FileType yaml call matchadd('ColorColumn', echo "i")
+      autocmd FileType yaml call matchadd('ColorColumn','^lo+')
       autocmd FileType yaml highlight ColorColumn term=standout ctermfg=14 ctermbg=242 guifg=Cyan guibg=Grey 
       let counter += i
       nohls
