@@ -1,6 +1,5 @@
 # myConfigs
-### A place for my current configs across my server collection.
-  - This is an archive of my current .vimrc.  
+### This is an archive of my current .vimrc.  
   > - specific highlighting to make Ansible playbooks more readable- particularly when it comes to commonly used keywords. 
   > - this highlights the '- name' keyword and '---' in light gray. 
   > - sets cuc, cul and auto-returns local paths
