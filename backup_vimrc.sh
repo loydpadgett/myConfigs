@@ -3,7 +3,7 @@ v=.vimrc
 V=.vimrc.bu
 s=/home/lpadgett
 # to save time itemize the backup of .vimrc
-if [[ -d $s ]];
+if [[ -f $s/$v ]];
 then
   echo "This will back up and replace the .vimrc file for testing. "
   mv $s/$v $s/$V
