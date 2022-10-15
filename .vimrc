@@ -1,3 +1,4 @@
+
 function ClrColumn()
     autocmd FileType yaml call matchadd('ColorColumn','\v(\- name\:)|\v(\-{3})')
     autocmd FileType yaml highlight ColorColumn term=standout ctermfg=14 ctermbg=242 guifg=Cyan guibg=Grey 
@@ -6,4 +7,4 @@ function ClrColumn()
     autocmd FileType yaml highlight ColorColumn term=reverse ctermbg=242 guibg=Grey40
 endfunction    
 
-    call ClrColumn()
+
