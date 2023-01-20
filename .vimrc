@@ -6,3 +6,9 @@ if has("autocmd")
     autocmd FileType yaml colorscheme darkblue
     autocmd FileType yaml highlight ColorColumn term=reverse ctermbg=242 guibg=Grey40
 endif
+augroup NoSimultaneousEdits
+    autocmd!
+    autocmd SwapExists * let
+    autocmd SwapExists * echo
+    autocmd SwapExists * echo
+    autocmd SwapExists * echo
