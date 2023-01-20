@@ -1,3 +1,5 @@
+"=====[ Helper for ansible yml highlighting ]==================
+
 if has("autocmd")
     filetype on
     autocmd FileType yaml call matchadd('ColorColumn','\v(\- name\:)|\v(\-{3})')
@@ -8,7 +10,8 @@ if has("autocmd")
 endif
 augroup NoSimultaneousEdits
     autocmd!
-    autocmd SwapExists * let
-    autocmd SwapExists * echo
-    autocmd SwapExists * echo
-    autocmd SwapExists * echo
+    autocmd SwapExists * let v:swapchoice = 'r'
+    autocmd SwapExists * echo echomsg ErrorMsg
+    autocmd SwapExists * echo 'Duplicate edit session (readonly)'
+    autocmd SwapExists * echohl None
+augroup END
