@@ -1,3 +1,5 @@
+"=====[ Helper for ansible yml highlighting ]==================
+
 if has("autocmd")
     filetype on
     autocmd FileType yaml call matchadd('ColorColumn','\v(\- name\:)|\v(\-{3})')
@@ -6,3 +8,10 @@ if has("autocmd")
     autocmd FileType yaml colorscheme darkblue
     autocmd FileType yaml highlight ColorColumn term=reverse ctermbg=242 guibg=Grey40
 endif
+augroup NoSimultaneousEdits
+    autocmd!
+    autocmd SwapExists * let v:swapchoice = 'r'
+    autocmd SwapExists * echo echomsg ErrorMsg
+    autocmd SwapExists * echo 'Duplicate edit session (readonly)'
+    autocmd SwapExists * echohl None
+augroup END

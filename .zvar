@@ -1,0 +1,10 @@
+# source global variables
+CUSTOM_ENV="KUBE_EDITOR"
+CUSTOM_CMD=(`which vim`)
+for i in ${CUSTOM_ENV[@]}; 
+do 
+  for j in ${CUSTOM_CMD[@]};
+  do
+  export "$i"="$j"
+  done
+done

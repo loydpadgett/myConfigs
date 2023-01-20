@@ -1,7 +1,7 @@
 #!/bin/bash
 v=.vimrc
 V=.vimrc.bu
-s=/home/lpadgett
+s=$HOME
 # to save time itemize the backup of .vimrc
 if [[ -f $s/$v ]];
 then
@@ -13,5 +13,5 @@ then
   mv $s/$v $s/$V
   cp ./$v $s/
 else 
-  echo "Please check to be sure that the variable files exist. "
+  echo "$s/$v Please check to be sure that the variable files exist. "
 fi
