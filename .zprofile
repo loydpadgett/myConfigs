@@ -16,12 +16,13 @@ function welcome (){
   fi
   }
 welcome
+# add key variables
 S1="%n@%m $1~ %#"
 PATH=$PATH:/opt/homebrew/sbin:/System/Cryptexes/App/usr/bin:/Library/Apple/usr/bin
 PATH=$PATH:/usr/bin:/usr/sbin:/bin:/sbin:/opt/homebrew/bin/python3.11
 export PATH
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
-# add key variables
 export GPG_TTY=$(tty)
 config_files=( "$HOME/.zvar" "$HOME/.zshrc" )
 for i in $config_files[@];
