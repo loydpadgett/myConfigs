@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-		sh 'source .zprofile'
+		sh 'source .zshrc'
 		}
 	}
         stage('Test') {
