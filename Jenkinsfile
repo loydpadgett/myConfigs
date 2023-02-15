@@ -9,7 +9,7 @@ pipeline {
 	}
         stage('Test') {
             steps {
-		sh 'alias'
+		sh 'alias | awk "$0 ~ /^a/{ print $0 }"'
    	    }
   	}	
     }	
