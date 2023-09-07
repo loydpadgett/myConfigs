@@ -1,4 +1,5 @@
 #!/bin/bash
+# rename below values
 v=.vimrc
 V=.vimrc.bu
 s=$HOME
