@@ -7,7 +7,6 @@ av="av=ansible-vault"
 #an="an=ansible-navigator"
 ap="ap=ansible-playbook"
 ad="ad=ansible-doc"
-kpf="kpf=kubectl port-forward"
 # bash_profile
 customAlias(){
 ali=( $list $listDot $a $av \

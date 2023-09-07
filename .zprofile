@@ -5,7 +5,7 @@ function welcome (){
   then
     echo "::::::::::::::::::::::::::::::::"
     echo "::::                            "
-    echo ":::: Welcome to $USER's Machine "
+    echo ":::: Welcome to $HOSTNAME       "
     echo "::::                            "
     echo "::::::::::::::::::::::::::::::::"
   else
@@ -15,8 +15,10 @@ function welcome (){
     exit
   fi
   }
+#run welcome function to greet user and add ssh key
 welcome
 S1="%n@%m $1~ %#"
+# path variables for homebrew
 PATH=$PATH:/opt/homebrew/sbin:/System/Cryptexes/App/usr/bin:/Library/Apple/usr/bin
 PATH=$PATH:/usr/bin:/usr/sbin:/bin:/sbin:/opt/homebrew/bin/python3.11
 export PATH

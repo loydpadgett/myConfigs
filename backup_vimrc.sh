@@ -12,6 +12,8 @@ then
   echo " ********************************************************** " 
   mv $s/$v $s/$V
   cp ./$v $s/
+  cp .zshrc ~/
+  cp .zvar ~/
 else 
   echo "$s/$v Please check to be sure that the variable files exist. "
 fi
