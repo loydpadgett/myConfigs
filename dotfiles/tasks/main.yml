@@ -1,0 +1,37 @@
+---
+- name: Ensure dotfiles repository is a clone of the target
+  ansible.builtin.git:
+    repo: "{{ dotfiles_repo }}"
+    dest: "{{ dotfiles_repo_local_destination }}"
+
+- name: Backup current dot files
+  ansible.builtin.copy:
+    src: "~/{{ item }}"
+    dest: ~/dotfiles/
+    remote_src: false
+  loop: "{{ dotfiles_backup_files }}"
+  register: ls_output
+  tags:
+    - backup
+
+- name: Build package list
+  ansible.builtin.find:
+    paths: ["{{ dotfiles_repo_local_destination }}"]
+    depth: 1
+    file_type: directory
+  register: files
+  become: false
+  tags:
+    - deploy
+
+- name: Deploy dotfiles
+  with_items: '{{ files.files }}'
+  ansible.builtin.command:
+    cmd: 'stow --dotfiles --target={{ dotfiles_home }} --dir {{ dotfiles_repo_local_destination }} {{ item.path | basename }}'
+    chdir:
+      "{{ dotfiles_repo_local_destination }}"
+    register: result
+    changed_when: 'result.stderr is search("LINK: ")'
+  become: false
+  tags:
+    - deploy

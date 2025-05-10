@@ -54,7 +54,7 @@ ansible-navigator:
 #
   execution-environment:
     container-engine: docker
-    enabled: False
+    enabled: false
 #     environment-variables:
 #       pass:
 #         - ONE

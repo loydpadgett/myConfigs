@@ -4,7 +4,8 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignor
 # Ansible files
 .secrets.yml
-
+.ansible/*
+./collections*
 # User-specific files
 *.rsuser
 *.suo
