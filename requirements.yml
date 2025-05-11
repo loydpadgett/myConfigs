@@ -1,0 +1,5 @@
+---
+# add community.general with ansible-galaxy collection install -r requirements.yml -p ./<directory-name>/
+collections:
+- name: community.general
+  type: galaxy
