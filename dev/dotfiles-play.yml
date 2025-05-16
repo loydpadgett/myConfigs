@@ -1,6 +1,6 @@
 ---
 - name: Prepare role to run for dotfiles
-  hosts: local
+  hosts: dev
   roles:
     - { role: dotfiles }
   become: true
