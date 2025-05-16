@@ -1,28 +1,36 @@
 ---
-# - name: Ensure dotfiles repository is a clone of the target
-#   ansible.builtin.git:
-#     repo: "{{ dotfiles_repo }}"
-#     dest: "{{ dotfiles_repo_local_destination }}"
-- name: Make sure directories are created first
-  ansible.builtin.file:
-    path: ~/dotfiles/{{ item | regex_replace("[\.]", "") }}/
-    state: directory
-    mode: '0755'
-    follow: true
-  loop: "{{ dotfiles_backup_files }}"
+- name: Ensure dotfiles repository is a clone of the target
+  ansible.builtin.git:
+    repo: "{{ dotfiles_repo }}"
+    dest: "{{ dotfiles_repo_local_destination }}"
+  register: repo_result
   tags:
-    - backup
+    - repo
 
 - name: Backup current dot files
   ansible.builtin.copy:
     src: "~/{{ item }}"
-    dest: './files/{{ item | regex_replace("[\.]", "") }}/dot-{{ item | regex_replace("[\.]", "") }}'
+    dest: "{{ role_path }}/files/dot-{{ item | regex_replace('[.]', '') }}"
+    mode: '0644'
     remote_src: true
     follow: true
-  loop: "{{ dotfiles_backup_files }}"
+  loop: "{{ dotfiles_files }}"
   register: ls_output
   tags:
     - backup
+
+- name: Backup current dot folders
+  ansible.builtin.copy:
+    src: "~/{{ item }}/"
+    dest: '{{ role_path }}/files/dot-{{ item | regex_replace("[.]", "") }}'
+    mode: '0744'
+    remote_src: true
+    follow: true
+  loop: "{{ dotfiles_dir }}"
+  register: ls_output
+  tags:
+    - backup
+
 
 - name: Build package list
   ansible.builtin.find:
