@@ -1,6 +1,6 @@
 ---
 - name: Prepare role to run for dotfiles
-  hosts: development
+  hosts: 10.10.30.15
   roles:
     - { role: dotfiles }
   become: true
