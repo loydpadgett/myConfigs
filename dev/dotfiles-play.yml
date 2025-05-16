@@ -4,5 +4,3 @@
   roles:
     - { role: dotfiles }
   become: true
-  tags:
-    - backup
