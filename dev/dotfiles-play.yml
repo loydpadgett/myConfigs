@@ -1,6 +1,6 @@
 ---
 - name: Prepare role to run for dotfiles
-  hosts: 10.10.30.15
+  hosts: localMac
   roles:
     - { role: dotfiles }
   become: true
