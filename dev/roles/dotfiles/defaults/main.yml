@@ -2,7 +2,7 @@
 # defaults file for dotfiles
 dotfiles_home_path: "{{ role_path }}/files/"
 dotfiles_repo: "https://github.com/loydpadgett/myConfigs.git"
-dotfiles_repo_local_destination: "ansible_env/$HOME/.dotfile"
+dotfiles_repo_local_destination: "$HOME/dotfile/"
 dotfiles_home: "{{ dotfiles_home_path }}"
 dotfiles_files:
   - .zprofile
