@@ -1,8 +1,6 @@
 ---
 - name: Prepare role to run for dotfiles
-  hosts: local
+  hosts: localMac
   roles:
     - { role: dotfiles }
   become: true
-  tags:
-    - backup
